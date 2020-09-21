@@ -10,8 +10,8 @@
 #import <Rudder/Rudder.h>
 #import <AdSupport/ASIdentifierManager.h>
 
-static NSString *DATA_PLANE_URL = @"https://7f79d5a74811.ngrok.io";
-static NSString *WRITE_KEY = @"1celWezYSkGPQzL0foc9dnvFfsD";
+static NSString *DATA_PLANE_URL = @"https://c16ef8ac19af.ngrok.io";
+static NSString *WRITE_KEY = @"1UsY362jONW4EOwaZX5MA6FX5Zt";
 
 @implementation _AppDelegate
 
@@ -21,13 +21,40 @@ static NSString *WRITE_KEY = @"1celWezYSkGPQzL0foc9dnvFfsD";
     RSConfigBuilder *builder = [[RSConfigBuilder alloc] init];
     [builder withDataPlaneURL:[[NSURL alloc] initWithString:DATA_PLANE_URL]];
     [builder withLoglevel:RSLogLevelDebug];
-    [builder withTrackLifecycleEvens:NO];
-    [builder withRecordScreenViews:NO];
+    [builder withTrackLifecycleEvens:YES];
+    [builder withRecordScreenViews:YES];
     [RSClient getInstance:WRITE_KEY config:[builder build]];
     
 //    [[[RSClient sharedInstance] getContext] putDeviceToken:[self getDeviceToken]];
 //    [[[RSClient sharedInstance] getContext] putAdvertisementId:[self getIDFA]];
     
+    RSOption *identifyOptions = [[RSOption alloc] init];
+        [identifyOptions putExternalId:@"brazeExternalId" withId:@"sample_braze_external_id"];
+        [identifyOptions putExternalId:@"braze_id" withId:@"some_braze_id_3"];
+    
+    
+    [[RSClient sharedInstance] identify:@"test_user_id_ios"
+                                 traits:@{@"foo": @"bar",
+                                          @"foo1": @"bar1",
+                                          @"email": @"test@gmail.com"}
+                                options:identifyOptions
+    ];
+    [[RSClient sharedInstance] track:@"simple_track_event"];
+    [[RSClient sharedInstance] track:@"simple_track_with_props" properties:@{
+        @"key_1" : @"value_1",
+        @"key_2" : @"value_2"
+    }];
+    
+    [[RSClient sharedInstance] screen:@"Main" properties:@{@"prop_key" : @"prop_value"}];
+    [[RSClient sharedInstance] reset];
+    [[RSClient sharedInstance] identify:@"test_user_id_ios"
+                                    traits:@{@"foo": @"bar",
+                                             @"foo1": @"bar1",
+                                             @"email": @"test@gmail.com"}
+//                                   options:@{@"brazeExternalId": @"sample_braze_external_id"}
+       ];
+    
+    [[RSClient sharedInstance] track:@"simple_track_event_after_reset"];
     return YES;
 }
 
