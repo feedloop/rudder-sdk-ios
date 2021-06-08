@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,10 @@
 		06EABC8F24665E480043D720 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 06EABC8E24665E480043D720 /* Assets.xcassets */; };
 		06EABC9224665E480043D720 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06EABC9024665E480043D720 /* LaunchScreen.storyboard */; };
 		5332F5C4CD34D0D875851B02 /* Pods_ExampleSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C26BFCB87CCF66B914A0AA77 /* Pods_ExampleSwift.framework */; };
+		F6753C19266FBE5A003E90D9 /* TypewriterAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6753C15266FBE5A003E90D9 /* TypewriterAnalytics.swift */; };
+		F6753C1A266FBE5A003E90D9 /* TypewriterSerializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6753C16266FBE5A003E90D9 /* TypewriterSerializable.swift */; };
+		F6753C1B266FBE5A003E90D9 /* Dimensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6753C17266FBE5A003E90D9 /* Dimensions.swift */; };
+		F6753C1C266FBE5A003E90D9 /* TypewriterUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6753C18266FBE5A003E90D9 /* TypewriterUtils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +32,10 @@
 		3C4AB4017712A94A434E0E68 /* Pods-ExampleSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExampleSwift.debug.xcconfig"; path = "Target Support Files/Pods-ExampleSwift/Pods-ExampleSwift.debug.xcconfig"; sourceTree = "<group>"; };
 		89540B4C4F4245C09939FDA2 /* Pods-ExampleSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExampleSwift.release.xcconfig"; path = "Target Support Files/Pods-ExampleSwift/Pods-ExampleSwift.release.xcconfig"; sourceTree = "<group>"; };
 		C26BFCB87CCF66B914A0AA77 /* Pods_ExampleSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ExampleSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F6753C15266FBE5A003E90D9 /* TypewriterAnalytics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypewriterAnalytics.swift; sourceTree = "<group>"; };
+		F6753C16266FBE5A003E90D9 /* TypewriterSerializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypewriterSerializable.swift; sourceTree = "<group>"; };
+		F6753C17266FBE5A003E90D9 /* Dimensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dimensions.swift; sourceTree = "<group>"; };
+		F6753C18266FBE5A003E90D9 /* TypewriterUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypewriterUtils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +53,7 @@
 		06EABC7924665E470043D720 = {
 			isa = PBXGroup;
 			children = (
+				F6753C14266FBE5A003E90D9 /* TypeWriterClientSwift */,
 				06EABC8424665E470043D720 /* ExampleSwift */,
 				06EABC8324665E470043D720 /* Products */,
 				8A2981A2A20F2E7514B17EC9 /* Pods */,
@@ -80,7 +89,6 @@
 				3C4AB4017712A94A434E0E68 /* Pods-ExampleSwift.debug.xcconfig */,
 				89540B4C4F4245C09939FDA2 /* Pods-ExampleSwift.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -90,6 +98,18 @@
 				C26BFCB87CCF66B914A0AA77 /* Pods_ExampleSwift.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F6753C14266FBE5A003E90D9 /* TypeWriterClientSwift */ = {
+			isa = PBXGroup;
+			children = (
+				F6753C15266FBE5A003E90D9 /* TypewriterAnalytics.swift */,
+				F6753C16266FBE5A003E90D9 /* TypewriterSerializable.swift */,
+				F6753C17266FBE5A003E90D9 /* Dimensions.swift */,
+				F6753C18266FBE5A003E90D9 /* TypewriterUtils.swift */,
+			);
+			name = TypeWriterClientSwift;
+			path = ../TypeWriterClientSwift;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -208,8 +228,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				06EABC8A24665E470043D720 /* ViewController.swift in Sources */,
+				F6753C1C266FBE5A003E90D9 /* TypewriterUtils.swift in Sources */,
 				06EABC8624665E470043D720 /* AppDelegate.swift in Sources */,
+				F6753C1B266FBE5A003E90D9 /* Dimensions.swift in Sources */,
+				F6753C1A266FBE5A003E90D9 /* TypewriterSerializable.swift in Sources */,
 				06EABC8824665E470043D720 /* SceneDelegate.swift in Sources */,
+				F6753C19266FBE5A003E90D9 /* TypewriterAnalytics.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

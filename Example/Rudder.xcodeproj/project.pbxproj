@@ -25,6 +25,9 @@
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 		F3874DF974719E0D84699140 /* Pods_Rudder_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 067146E391B1A8F65C70373A /* Pods_Rudder_Tests.framework */; };
+		F6753C11266FB54C003E90D9 /* RSDimensions.m in Sources */ = {isa = PBXBuildFile; fileRef = F6753C0B266FB54C003E90D9 /* RSDimensions.m */; };
+		F6753C12266FB54C003E90D9 /* RSTypewriterAnalytics.m in Sources */ = {isa = PBXBuildFile; fileRef = F6753C0C266FB54C003E90D9 /* RSTypewriterAnalytics.m */; };
+		F6753C13266FB54C003E90D9 /* RSTypewriterUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = F6753C0D266FB54C003E90D9 /* RSTypewriterUtils.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +72,13 @@
 		C9DD328D69249022A435D2E9 /* Pods_Rudder_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rudder_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA624BE63D50D44B09DC0AAA /* Pods-Rudder_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rudder_Tests.debug.xcconfig"; path = "Target Support Files/Pods-Rudder_Tests/Pods-Rudder_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		F00BCA7CE1647EF16B265CC2 /* Pods-Rudder_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rudder_Example.debug.xcconfig"; path = "Target Support Files/Pods-Rudder_Example/Pods-Rudder_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		F6753C0A266FB54C003E90D9 /* RSTypewriterUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSTypewriterUtils.h; sourceTree = "<group>"; };
+		F6753C0B266FB54C003E90D9 /* RSDimensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSDimensions.m; sourceTree = "<group>"; };
+		F6753C0C266FB54C003E90D9 /* RSTypewriterAnalytics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSTypewriterAnalytics.m; sourceTree = "<group>"; };
+		F6753C0D266FB54C003E90D9 /* RSTypewriterUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSTypewriterUtils.m; sourceTree = "<group>"; };
+		F6753C0E266FB54C003E90D9 /* RSTypewriterSerializable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSTypewriterSerializable.h; sourceTree = "<group>"; };
+		F6753C0F266FB54C003E90D9 /* RSTypewriterAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSTypewriterAnalytics.h; sourceTree = "<group>"; };
+		F6753C10266FB54C003E90D9 /* RSDimensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSDimensions.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +111,7 @@
 		6003F581195388D10070C39A = {
 			isa = PBXGroup;
 			children = (
+				F6753C09266FB54C003E90D9 /* TypeWriteClient */,
 				60FF7A9C1954A5C5007DD14C /* Podspec Metadata */,
 				6003F593195388D20070C39A /* Example for Rudder */,
 				6003F5B5195388D20070C39A /* Tests */,
@@ -198,6 +209,21 @@
 				1A017A2CB2F5C9192E0AB5B5 /* Pods-Rudder_Tests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		F6753C09266FB54C003E90D9 /* TypeWriteClient */ = {
+			isa = PBXGroup;
+			children = (
+				F6753C0A266FB54C003E90D9 /* RSTypewriterUtils.h */,
+				F6753C0B266FB54C003E90D9 /* RSDimensions.m */,
+				F6753C0C266FB54C003E90D9 /* RSTypewriterAnalytics.m */,
+				F6753C0D266FB54C003E90D9 /* RSTypewriterUtils.m */,
+				F6753C0E266FB54C003E90D9 /* RSTypewriterSerializable.h */,
+				F6753C0F266FB54C003E90D9 /* RSTypewriterAnalytics.h */,
+				F6753C10266FB54C003E90D9 /* RSDimensions.h */,
+			);
+			name = TypeWriteClient;
+			path = ../TypeWriteClient;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -390,9 +416,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6753C12266FB54C003E90D9 /* RSTypewriterAnalytics.m in Sources */,
 				6003F59E195388D20070C39A /* _AppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* _ViewController.m in Sources */,
+				F6753C13266FB54C003E90D9 /* RSTypewriterUtils.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
+				F6753C11266FB54C003E90D9 /* RSDimensions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

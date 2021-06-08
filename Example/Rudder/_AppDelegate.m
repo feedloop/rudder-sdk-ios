@@ -9,8 +9,9 @@
 #import "_AppDelegate.h"
 #import <Rudder/Rudder.h>
 #import <AdSupport/ASIdentifierManager.h>
+#import "RSTypewriterAnalytics.h"
 
-static NSString *DATA_PLANE_URL = @"https://7eddd110f484.ngrok.io";
+static NSString *DATA_PLANE_URL = @"https://028ca7ca5687.ngrok.io";
 static NSString *WRITE_KEY = @"1pcZviVxgjd3rTUUmaTUBinGH0A";
 
 @implementation _AppDelegate
@@ -48,6 +49,37 @@ static NSString *WRITE_KEY = @"1pcZviVxgjd3rTUUmaTUBinGH0A";
         @"key_1" : @"value_1",
         @"key_2" : @"value_2"
     } options:option];
+    
+    [[[RSClient sharedInstance] getContext] putDeviceToken:[self getDeviceToken]];
+    [[[RSClient sharedInstance] getContext] putAdvertisementId:[self getIDFA]];
+    
+    
+    // Creating RSDimensions Object
+    RSDimensions *dimension = [RSDimensions initWithHeight:@"10" length:nil width:@10];
+    
+    
+    // Making Sign In Failed call
+    [RSTypewriterAnalytics signInFailedWithDimensions:dimension id_:@"4009" numAttempts:@21 rememberMe:[NSNumber numberWithBool:YES]];
+    
+    [RSTypewriterAnalytics signInFailedWithDimensions:dimension id_:@"4009" numAttempts:@21 rememberMe:[NSNumber numberWithBool:YES] options:option];
+    
+    
+    // Making SignIn Submitted call
+    [RSTypewriterAnalytics signInSubmittedWithId_:@"4010" numAttempts:@22 rememberMe:[NSNumber numberWithBool:NO]];
+    
+    [RSTypewriterAnalytics signInSubmittedWithId_:@"4010" numAttempts:@22 rememberMe:[NSNumber numberWithBool:NO] options:option];
+    
+    
+    // Making SignIn Succeeded call
+    [RSTypewriterAnalytics signInSucceededWithId_:@"4011" numAttempts:@23 rememberMe:[NSNumber numberWithBool:YES]];
+    
+    [RSTypewriterAnalytics signInSucceededWithId_:@"4011" numAttempts:@23 rememberMe:[NSNumber numberWithBool:YES] options:option];
+    
+    
+    // Making User Signedout call
+    [RSTypewriterAnalytics userSignedOutWithId_:@"4012" numAttempts:@24 rememberMe:[NSNumber numberWithBool:NO]];
+    
+    [RSTypewriterAnalytics userSignedOutWithId_:@"4012" numAttempts:@24 rememberMe:[NSNumber numberWithBool:NO] options:option];
     
     return YES;
 }
