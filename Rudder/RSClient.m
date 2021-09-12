@@ -241,6 +241,7 @@ static RSOption* _defaultOptions = nil;
         [_repository reset];
     }
     
+    // clear anonymous id
     [[RSPreferenceManager getInstance] clearAnonymousId];
 }
 
@@ -281,6 +282,16 @@ static RSOption* _defaultOptions = nil;
 + (void)setAnonymousId:(NSString *)anonymousId {
     RSPreferenceManager *preferenceManager = [RSPreferenceManager getInstance];
     [preferenceManager saveAnonymousId:anonymousId];
+}
+
+/**
+ * Save anonymous id only once
+ * if there's already stored anonymous id, subsequent set will be ignored
+ * If null is inserted, the anonymous id will be set to null.
+ */
++ (void)setAnonymousIdOnce:(NSString *)anonymousId {
+    RSPreferenceManager *preferenceManager = [RSPreferenceManager getInstance];
+    [preferenceManager saveAnonymousIdOnce:anonymousId];
 }
 
 @end

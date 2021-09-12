@@ -102,7 +102,7 @@ NSString *const RSAnonymousIdKey =  @"rl_anonymous_id";
     NSString *storedKey = [[NSUserDefaults standardUserDefaults] valueForKey:RSAnonymousIdKey];
     
     // if anonymousId has not been set, then set new one
-    // else use existing
+    // else use existing anonymous id
     if (storedKey == nil) {
         [[NSUserDefaults standardUserDefaults] setValue:anonymousId forKey:RSAnonymousIdKey];
         [[NSUserDefaults standardUserDefaults] synchronize];
