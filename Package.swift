@@ -19,9 +19,9 @@ let package = Package(
             name: "Rudder",
             path: "Rudder",
             sources: [""],
-            publicHeadersPath: "Rudder/**",
+            publicHeadersPath: "**",
             cSettings: [
-                .headerSearchPath("Rudder/**")
+                .headerSearchPath("**")
             ]
         )
     ]
