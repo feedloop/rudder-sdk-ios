@@ -11,7 +11,7 @@ let package = Package(
         .library(
             name: "Rudder",
             type: .dynamic,
-            targets: ["Rudder"]
+            targets: ["Rudder-Swift"]
         )
     ],
     targets: [
@@ -22,6 +22,11 @@ let package = Package(
             cSettings: [
                 .headerSearchPath("Rudder/**")
             ]
+        ),
+        .target(
+            name: "Rudder-Swift",
+            dependencies: ["Rudder"],
+            path: "SwiftSources"
         )
     ]
 )
