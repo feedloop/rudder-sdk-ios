@@ -247,9 +247,6 @@ BOOL _isOptedOut;
     if (_repository != nil) {
         [_repository reset];
     }
-    
-    // clear anonymous id
-    [[RSPreferenceManager getInstance] clearAnonymousId];
 }
 
 - (void)flush {
