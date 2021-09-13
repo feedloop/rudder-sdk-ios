@@ -18,6 +18,7 @@ NSString *const RSTraitsKey = @"rl_traits";
 NSString *const RSApplicationInfoKey = @"rl_application_info_key";
 NSString *const RSExternalIdKey =  @"rl_external_id";
 NSString *const RSAnonymousIdKey =  @"rl_anonymous_id";
+NSString *const RSOptStatus = @"rl_opt_status";
 
 + (instancetype)getInstance {
     if (instance == nil) {
@@ -111,6 +112,15 @@ NSString *const RSAnonymousIdKey =  @"rl_anonymous_id";
 
 - (void)clearAnonymousId {
     [self saveAnonymousId:nil];
+}
+
+- (BOOL)getOptStatus {
+    return [[NSUserDefaults standardUserDefaults] boolForKey:RSOptStatus];
+}
+
+- (void)saveOptStatus:(BOOL) optStatus {
+    [[NSUserDefaults standardUserDefaults] setBool:optStatus forKey:RSOptStatus];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 @end

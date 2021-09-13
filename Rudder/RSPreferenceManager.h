@@ -1,4 +1,4 @@
- //
+//
 //  RSPreferenceManager.h
 //  Pods-DummyTestProject
 //
@@ -18,6 +18,7 @@ extern NSString *const RSServerLastUpdatedKey;
 extern NSString *const RSTraitsKey;
 extern NSString *const RSApplicationInfoKey;
 extern NSString *const RSExternalIdKey;
+extern NSString *const RSOptStatus;
 
 + (instancetype) getInstance;
 
@@ -41,6 +42,9 @@ extern NSString *const RSExternalIdKey;
 - (void) saveAnonymousId: (NSString* __nullable) anonymousId;
 - (void) saveAnonymousIdOnce:(NSString * __nullable)anonymousId;
 - (void) clearAnonymousId;
+
+- (BOOL) getOptStatus;
+- (void) saveOptStatus: (BOOL) optStatus;
 
 @end
 
