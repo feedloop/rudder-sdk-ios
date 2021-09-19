@@ -295,4 +295,14 @@ BOOL _isOptedOut;
     [preferenceManager saveAnonymousId:anonymousId];
 }
 
+/**
+ * Save anonymous id only once
+ * if there's already stored anonymous id, subsequent set will be ignored
+ * If null is inserted, the anonymous id will be set to null.
+ */
++ (void)setAnonymousIdOnce:(NSString *)anonymousId {
+    RSPreferenceManager *preferenceManager = [RSPreferenceManager getInstance];
+    [preferenceManager saveAnonymousIdOnce:anonymousId];
+}
+
 @end

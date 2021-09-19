@@ -99,6 +99,21 @@ NSString *const RSOptStatus = @"rl_opt_status";
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
+- (void)saveAnonymousIdOnce:(NSString *)anonymousId {
+    NSString *storedKey = [[NSUserDefaults standardUserDefaults] valueForKey:RSAnonymousIdKey];
+    
+    // if anonymousId has not been set, then set new one
+    // else use existing anonymous id
+    if (storedKey == nil) {
+        [[NSUserDefaults standardUserDefaults] setValue:anonymousId forKey:RSAnonymousIdKey];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+}
+
+- (void)clearAnonymousId {
+    [self saveAnonymousId:nil];
+}
+
 - (BOOL)getOptStatus {
     return [[NSUserDefaults standardUserDefaults] boolForKey:RSOptStatus];
 }

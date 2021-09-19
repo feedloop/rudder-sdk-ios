@@ -40,6 +40,8 @@ extern NSString *const RSOptStatus;
 
 - (NSString* __nullable) getAnonymousId;
 - (void) saveAnonymousId: (NSString* __nullable) anonymousId;
+- (void) saveAnonymousIdOnce:(NSString * __nullable)anonymousId;
+- (void) clearAnonymousId;
 
 - (BOOL) getOptStatus;
 - (void) saveOptStatus: (BOOL) optStatus;

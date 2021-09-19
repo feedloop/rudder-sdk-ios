@@ -75,6 +75,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (void) setAnonymousId: (NSString *__nullable) anonymousId;
 
++ (void) setAnonymousIdOnce:(NSString *__nullable)anonymousId;
+
 @end
 
 NS_ASSUME_NONNULL_END
