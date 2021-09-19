@@ -305,4 +305,9 @@ BOOL _isOptedOut;
     [preferenceManager saveAnonymousIdOnce:anonymousId];
 }
 
++ (void)clearAnonymousId:(NSString *)anonymousId {
+    RSPreferenceManager *preferenceManager = [RSPreferenceManager getInstance];
+    [preferenceManager clearAnonymousId];
+}
+
 @end

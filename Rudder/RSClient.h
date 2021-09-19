@@ -73,9 +73,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (RSContext *) getContext;
 
-+ (void) setAnonymousId: (NSString *__nullable) anonymousId;
++ (void) setAnonymousId:(NSString *__nullable) anonymousId;
 
 + (void) setAnonymousIdOnce:(NSString *__nullable)anonymousId;
+
++ (void) clearAnonymousId:(NSString *__nullable)anonymousId;
 
 @end
 
