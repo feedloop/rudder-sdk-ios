@@ -17,11 +17,8 @@
         config = [[RSConfig alloc] init];
     }
     NSURL *url = [[NSURL alloc] initWithString:endPointUrl];
-    if ([url port]) {
-        config.dataPlaneUrl = [[NSString alloc] initWithFormat:@"%@://%@:%@", [url scheme], [url host], [url port]];
-    } else {
-        config.dataPlaneUrl = [[NSString alloc] initWithFormat:@"%@://%@", [url scheme], [url host]];
-    }
+    [self setDataPlaneURL:url];
+    
     return self;
 }
 
@@ -31,24 +28,34 @@
     }
     
     NSURL *url = [[NSURL alloc] initWithString:dataPlaneUrl];
-    if ([url port]) {
-        config.dataPlaneUrl = [[NSString alloc] initWithFormat:@"%@://%@:%@", [url scheme], [url host], [url port]];
-    } else {
-        config.dataPlaneUrl = [[NSString alloc] initWithFormat:@"%@://%@", [url scheme], [url host]];
-    }
+    [self setDataPlaneURL:url];
+        
     return self;
 }
 
-- (instancetype)withDataPlaneURL:(NSURL *) dataPlaneURL {
+- (instancetype) withDataPlaneURL:(NSURL *) dataPlaneURL {
     if (config == nil) {
         config = [[RSConfig alloc] init];
     }
-    if ([dataPlaneURL port]) {
-        config.dataPlaneUrl = [[NSString alloc] initWithFormat:@"%@://%@:%@", [dataPlaneURL scheme], [dataPlaneURL host] ,[dataPlaneURL port]];
-    } else {
-        config.dataPlaneUrl = [[NSString alloc] initWithFormat:@"%@://%@", [dataPlaneURL scheme], [dataPlaneURL host]];
-    }
+    
+    [self setDataPlaneURL:dataPlaneURL];
+    
     return self;
+}
+
+- (void) setDataPlaneURL:(NSURL *) url {
+    if ([url port] && [url path]){
+        config.dataPlaneUrl = [[NSString alloc] initWithFormat:@"%@://%@:%@%@", [url scheme], [url host], [url port], [url path]];
+    }
+    else if ([url port]) {
+        config.dataPlaneUrl = [[NSString alloc] initWithFormat:@"%@://%@:%@", [url scheme], [url host], [url port]];
+    }
+    else if ([url path]){
+        config.dataPlaneUrl = [[NSString alloc] initWithFormat:@"%@://%@%@", [url scheme], [url host], [url path]];
+    }
+    else {
+        config.dataPlaneUrl = [[NSString alloc] initWithFormat:@"%@://%@", [url scheme], [url host]];
+    }
 }
 
 - (instancetype) withFlushQueueSize: (int) flushQueueSize {
