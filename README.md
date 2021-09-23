@@ -11,21 +11,27 @@ More information on RudderStack can be found [here](https://github.com/rudderlab
 The RudderStack iOS SDK allows you to integrate RudderStack to your iOS application in order to track event data from your app. After integrating this SDK, you will also be able to send this data to your preferred analytics destination/s such as Google Analytics, Amplitude, and more, via RudderStack.
 
 ## Installation
+
 RudderStack is available through [CocoaPods](https://cocoapods.org) and [Carthage](https://github.com/Carthage/Carthage).
 
 ### CocoaPods
+
 To install it, simply add the following line to your Podfile:
+
 ```xcode
-pod 'Rudder', '1.0.22'
+pod 'Rudder', :git => 'https://github.com/feedloop/rudder-sdk-ios.git', :tag => 'v1.x.xx-feedloop'
 ```
 
 ### Carthage
+
 And for Carthage support add the following line to your `Cartfile`
+
 ```xcode
-github "rudderlabs/rudder-sdk-ios" "v1.0.22"
+github "feedloop/rudder-sdk-ios" "v1.x.xx"
 ```
 
 Remember to include the following code in all `.m` and `.h` files where you want to refer to or use Rudder SDK classes
+
 ```xcode
 #import <Rudder/Rudder.h>
 ```
@@ -39,6 +45,7 @@ RSConfigBuilder *builder = [[RSConfigBuilder alloc] init];
 [builder withDataPlaneUrl:<DATA_PLANE_URL>];
 [RSClient getInstance:<WRITE_KEY> config:[builder build]];
 ```
+
 A shared instance of `RSClient` is accesible after the initialization by `[RSClient sharedInstance]`.
 
 ## Sending Events
